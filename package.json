@@ -6,12 +6,14 @@
   "scripts": {
     "test": "jest --coverage --config=unitTestsJestConfig.json",
     "lint": "eslint \"./**/*.js\" --fix",
-    "test:acceptance": "TEST_MODE=http TEST_BASE_URL='https://qcusxeckn1.execute-api.eu-west-1.amazonaws.com/dev/api' jest ./tests/*",
+    "test:acceptance": "TEST_MODE=http jest ./tests/*",
     "test:integration": "TEST_MODE=handler ./node_modules/.bin/jest ./tests/*",
     "pretest": "npm run lint",
     "posttest": "npm audit",
     "seedMasters": "node seedMasters.js masters-dev",
-    "deploy": "serverless deploy --aws-profile serverless-local"
+    "deploy": "serverless deploy --aws-profile serverless-local",
+    "deploy:sit": "serverless deploy --stage sit",
+    "deploy:prod": "serverless deploy --stage prod"
   },
   "author": "Ricardo Vega Alonso",
   "license": "MIT",
